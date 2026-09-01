@@ -1,0 +1,307 @@
+/* =========================
+   RESET + PAGE
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  max-width: 98vw;
+  display: flex;
+  justify-content: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(45deg, #093164, #611238);
+}
+
+/* =========================
+   BODY MAP PAGE
+   ========================= */
+#all_pages {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 60vw;
+  min-width: 98vw;
+  height: 100vh;
+  max-height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#before_page {
+  position: relative;
+  min-width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+.wrapper {
+  width: 97%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   BODY IMAGE + SVG OVERLAY
+   ========================= */
+.bodyWrapper {
+  position: relative;
+  width: 89%;
+}
+
+.bodyImg {
+  display: block;
+  width: 100%;
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay polygon {
+  cursor: pointer;
+  fill-opacity: 0.42;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  outline: none;
+  transition:
+    fill-opacity 0.18s ease,
+    filter 0.18s ease,
+    stroke-width 0.18s ease,
+    stroke 0.18s ease;
+}
+
+.overlay polygon:hover {
+  filter: brightness(0.75);
+}
+
+.overlay polygon.active {
+  filter: brightness(0.85);
+  stroke-width: 5;
+  fill-opacity: 0.7;
+}
+
+#backwrapper {
+  display: none;
+}
+
+.info {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* =========================
+   FRONT / BACK CONTROL
+   ========================= */
+#firstpage_menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#swap {
+  position: absolute;
+  top: 17px;
+  left: 19px;
+  z-index: 22;
+  width: 35px;
+  height: 35px;
+  background: url("swap.png") center / 100% 100% no-repeat;
+}
+
+/* =========================
+   EXERCISE RESULTS PAGE
+   ========================= */
+#next_page {
+  position: relative;
+  width: 26%;
+  min-width: 99vw;
+  height: 100%;
+  padding-top: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+#MenuContainer {
+  width: 93%;
+  min-height: 20px;
+  height: 92%;
+  padding: 2px 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #ffffff4d;
+  border-radius: 24px;
+}
+
+#genre {
+  width: 100%;
+  margin-top: 7px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#genre p {
+  padding: 1px 5px;
+  background-color: grey;
+  border-radius: 14px;
+}
+
+.youtube_profile {
+  display: flex;
+  flex-direction: column;
+  margin: 13px 0;
+}
+
+.createthumbnail {
+  width: 100%;
+  display: block;
+}
+
+/* =========================
+   YOUTUBE PLAYER
+   ========================= */
+#youtube_video_container {
+  position: absolute;
+  top: 7%;
+  width: 97%;
+  height: 79%;
+  flex-direction: column;
+}
+
+#youtube_player {
+  height: 82%;
+}
+
+button {
+  border: none;
+  padding: 4px 13px;
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+/* =========================
+   MUSCLE COLORS
+   ========================= */
+
+/* Chest */
+#all_chest {
+  fill: #ff4d67;
+}
+
+polygon#only_upper_chest {
+  fill: #fd0505;
+  stroke: #000;
+}
+
+polygon#middle_chest {
+  fill: rgb(0, 130, 0);
+  stroke: #000;
+}
+
+polygon#lower_chest {
+  fill: rgb(255, 223, 31);
+  stroke: #000;
+}
+
+/* Abs */
+#all_abs {
+  fill: #a56bff;
+}
+
+polygon#only_upper_abs {
+  fill: rgb(34, 0, 255);
+  stroke: #000;
+}
+
+#middle_abs {
+  fill: #6f8cff;
+}
+
+polygon#lower_abs {
+  fill: #fd0505;
+  stroke: #000;
+}
+
+/* Core */
+polygon#obliques {
+  fill: rgb(136, 255, 0);
+  stroke: #000;
+}
+
+#serratus {
+  fill: #9ad83f;
+}
+
+/* Legs */
+polygon#all_legs {
+  fill: #057bfd;
+  stroke: #000;
+}
+
+/* Arms */
+#forearms {
+  fill: #c46bff;
+}
+
+#full_arms {
+  fill: #f05cff;
+}
+
+/* Back */
+polygon#lats {
+  fill: green;
+  stroke: #000;
+}
+
+polygon#lower_back {
+  fill: #fd0505;
+  stroke: #000;
+}
+
+polygon#middle_back {
+  fill: rgb(0, 191, 255);
+  stroke: #000;
+}
+
+polygon#traps {
+  fill: rgb(34, 0, 255);
+  stroke: #000;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media only screen and (orientation: portrait) {
+  .bodyWrapper {
+    width: 100%;
+  }
+}

@@ -1,0 +1,843 @@
+
+/* =========================================================
+   MOBILE BODY MAP — FULL APP REDESIGN
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #111;
+  color: white;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   2. APP / PAGE SYSTEM
+   ========================================================= */
+
+#all_pages {
+  width: 100vw;
+  height: 100dvh;
+
+  display: flex;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+}
+
+#all_pages::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   PAGE 1 — BODY MAP
+   ========================================================= */
+
+#before_page {
+  position: relative;
+
+  min-width: 100vw;
+  width: 100vw;
+  height: 100dvh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #26364d 0%,
+      #151b27 38%,
+      #0c1017 100%
+    );
+
+  scroll-snap-align: start;
+
+  overflow: hidden;
+}
+
+
+/* subtle background effect */
+
+#before_page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,0.04),
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PAGE 1 — TOP BAR
+   ========================================================= */
+
+#firstpage_menu {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 70px;
+
+  border: none;
+
+  z-index: 20;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.45),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FRONT / BACK BUTTON
+   ========================================================= */
+
+#swap {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  width: 42px;
+  height: 42px;
+
+  z-index: 30;
+
+  background-image: url("swap.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 50%;
+
+  background-color: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+#swap:hover {
+  transform: scale(1.05);
+}
+
+#swap:active {
+  transform: scale(0.92);
+}
+
+
+/* =========================================================
+   BODY MAP CONTAINER
+   ========================================================= */
+
+.wrapper {
+  position: relative;
+
+  width: min(92vw, 500px);
+  max-width: 500px;
+
+  height: 92dvh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   BODY IMAGE WRAPPER
+   ========================================================= */
+
+.bodyWrapper {
+  position: relative;
+
+  width: 88%;
+  max-height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* =========================================================
+   BODY IMAGE
+   ========================================================= */
+
+.bodyImg {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 15px 30px rgba(0,0,0,0.35)
+    );
+}
+
+
+/* =========================================================
+   SVG OVERLAY
+   ========================================================= */
+
+.overlay {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MUSCLE POLYGONS
+   ========================================================= */
+
+.overlay polygon {
+  pointer-events: auto;
+
+  stroke: rgba(0,0,0,0.65);
+  stroke-width: 2px;
+
+  fill-opacity: 0.55;
+
+  cursor: pointer;
+
+  transition:
+    filter 0.2s ease,
+    fill-opacity 0.2s ease,
+    stroke-width 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* hover */
+
+.overlay polygon:hover {
+  filter:
+    brightness(1.25)
+    saturate(1.15);
+
+  fill-opacity: 0.75;
+
+  stroke-width: 4px;
+}
+
+
+/* active */
+
+.overlay polygon.active {
+  filter:
+    brightness(1.3)
+    saturate(1.2)
+    drop-shadow(0 0 8px rgba(255,255,255,0.6));
+
+  fill-opacity: 0.8;
+
+  stroke-width: 5px;
+}
+
+
+/* =========================================================
+   BACK BODY
+   ========================================================= */
+
+#backwrapper {
+  display: none;
+}
+
+
+/* =========================================================
+   MUSCLE COLOURS — FRONT
+   ========================================================= */
+
+#all_chest {
+  fill: #ff5252;
+}
+
+#only_upper_chest {
+  fill: #ff1744;
+}
+
+#only_middle_chest {
+  fill: #ff9100;
+}
+
+#only_lower_chest {
+  fill: #ffc400;
+}
+
+#only_upper_abs {
+  fill: #2979ff;
+}
+
+#middle_abs {
+  fill: #00b0ff;
+}
+
+#lower_abs {
+  fill: #00e5ff;
+}
+
+#all_abs {
+  fill: #651fff;
+}
+
+#all_legs {
+  fill: #00c853;
+}
+
+#quads {
+  fill: #64dd17;
+}
+
+#frontal_shoulder {
+  fill: #d500f9;
+}
+
+#middle_shoulder {
+  fill: #aa00ff;
+}
+
+#bicep {
+  fill: #f50057;
+}
+
+#forearms {
+  fill: #ff6d00;
+}
+
+#all_obliques {
+  fill: #76ff03;
+}
+
+#serratus {
+  fill: #00bfa5;
+}
+
+#full_arms {
+  fill: #ff4081;
+}
+
+
+/* =========================================================
+   MUSCLE COLOURS — BACK
+   ========================================================= */
+
+#lats {
+  fill: #00c853;
+}
+
+#lower_back {
+  fill: #ff1744;
+}
+
+#middle_back {
+  fill: #00b0ff;
+}
+
+#traps {
+  fill: #651fff;
+}
+
+#rotor_cuff {
+  fill: #00bfa5;
+}
+
+#deltoid {
+  fill: #ffc400;
+}
+
+
+/* =========================================================
+   PAGE 2 — WORKOUT DISCOVERY
+   ========================================================= */
+
+#next_page {
+  position: relative;
+
+  min-width: 100vw;
+  width: 100vw;
+  height: 100dvh;
+
+  padding-top: 70px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  background:
+    linear-gradient(
+      160deg,
+      #171c25 0%,
+      #0d1118 100%
+    );
+
+  scroll-snap-align: start;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   WORKOUT LIST
+   ========================================================= */
+
+#MenuContainer {
+  width: min(94%, 600px);
+  height: calc(100dvh - 145px);
+
+  padding: 8px 14px 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: rgba(255,255,255,0.055);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 24px;
+
+  backdrop-filter: blur(15px);
+
+  scrollbar-width: thin;
+}
+
+
+/* =========================================================
+   VIDEO CARD
+   ========================================================= */
+
+.youtube_profile {
+  width: 100%;
+
+  margin: 8px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(255,255,255,0.07);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.2);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.youtube_profile:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(255,255,255,0.11);
+}
+
+.youtube_profile:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   THUMBNAIL
+   ========================================================= */
+
+.createthumbnail {
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+
+  display: block;
+
+  background: #20252d;
+}
+
+
+/* =========================================================
+   VIDEO CHANNEL
+   ========================================================= */
+
+.create_channel_name {
+  margin:
+
+    12px 14px 3px;
+
+  color: #aeb7c5;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   VIDEO TITLE
+   ========================================================= */
+
+.create_video_title {
+  margin:
+
+    0 14px 14px;
+
+  color: white;
+
+  font-size: 16px;
+
+  line-height: 1.35;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   GENRE / FILTER AREA
+   ========================================================= */
+
+#genre {
+  width: min(94%, 600px);
+
+  min-height: 45px;
+
+  padding: 5px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+#genre::-webkit-scrollbar {
+  display: none;
+}
+
+#genre p {
+  flex-shrink: 0;
+
+  padding: 8px 16px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.1);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+#genre p:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+#genre p:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+  padding: 8px 16px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: white;
+
+  color: #111;
+
+  font-family: inherit;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   SECONDARY EXISTING COMPONENTS
+   ========================================================= */
+
+#menu_information {
+  width: 100%;
+
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow-y: auto;
+}
+
+#genre_buttons,
+#muscleType_container {
+  width: 100%;
+
+  height: 40px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.video_container {
+  width: 100%;
+
+  margin: 8px 0;
+
+  display: flex;
+
+  flex-direction: row;
+
+  justify-content: space-around;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+}
+
+
+img.thumbnail {
+  width: 160px;
+
+  align-self: flex-end;
+
+  border-radius: 12px;
+}
+
+
+.details_container {
+  width: 150px;
+
+  background: transparent;
+}
+
+.details_container p {
+  color: white;
+}
+
+
+/* =========================================================
+   VIDEO PLAYER
+   ========================================================= */
+
+#youtube_video_container {
+  position: fixed;
+
+  top: 70px;
+  left: 50%;
+
+  width: min(96%, 700px);
+
+  transform: translateX(-50%);
+
+  z-index: 100;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6);
+}
+
+
+/* =========================================================
+   OLD / OPTIONAL MENU
+   ========================================================= */
+
+#menu {
+  display: none;
+}
+
+#menu_icon {
+  display: none;
+}
+
+.info {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+  .wrapper {
+    width: 520px;
+    height: 94dvh;
+  }
+
+  .bodyWrapper {
+    width: 75%;
+  }
+
+  #MenuContainer {
+    width: min(80%, 700px);
+  }
+
+  .youtube_profile {
+    cursor: pointer;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-height: 700px) {
+
+  .wrapper {
+    height: 88dvh;
+  }
+
+  .bodyWrapper {
+    width: 80%;
+  }
+
+  #swap {
+    width: 38px;
+    height: 38px;
+    top: 15px;
+    left: 15px;
+  }
+
+  #next_page {
+    padding-top: 60px;
+  }
+
+  #MenuContainer {
+    height: calc(100dvh - 125px);
+  }
+}
+
+
+/* =========================================================
+   PORTRAIT
+   ========================================================= */
+
+@media (orientation: portrait) {
+
+  .bodyWrapper {
+    width: 88%;
+  }
+}
+

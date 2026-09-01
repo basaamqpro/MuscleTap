@@ -1,0 +1,503 @@
+/* =========================
+   BASE LAYOUT
+   ========================= */
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background:#f4f4f4;
+  display:flex;
+  justify-content:center;
+  background-image: linear-gradient(45deg, #093164, #611238);
+  /* overflow: hidden; */
+  /* overflow-x: scroll; */
+  max-width: 98vw;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid blue; /* DEBUGGING PURPOSES ONLY, REMOVE THIS LATER */
+  box-sizing: border-box;
+}
+
+.wrapper{
+  width: 97%;
+  max-width:500px;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   BODY IMAGE + SVG OVERLAY
+   ========================= */
+.bodyWrapper{
+  position:relative;
+  width: 89%;
+  border: 3px solid #1ae11a;
+}
+
+.bodyImg{
+  width:100%;
+  display:block;
+  opacity:1;
+  border: 2px solid #0000ff;
+}
+
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border: 2px solid #000000;
+}
+
+/* Base polygon styling */
+.overlay polygon{
+  fill-opacity:0.55;
+  stroke-width:1.5px;
+  transition:all 0.2s ease;
+  cursor:pointer;
+}
+
+/* Hover / touch active (darker) */
+.overlay polygon:hover{
+  filter:brightness(0.75);
+}
+
+/* Selected (when you add/remove .active in JS) */
+.overlay polygon.active{
+  filter:brightness(0.85);
+  stroke-width:5;
+  fill-opacity:0.7;
+}
+
+/* =========================
+   FRONT / BACK TOGGLE MENU
+   ========================= */
+#backwrapper{
+  display:none;
+  border: 6px solid #fbff00;
+}
+
+#menu{
+  position:fixed;
+  left:0;
+  margin:20px;
+  z-index:22;
+  display: none;
+}
+
+/* =========================
+   INFO TEXT
+   ========================= */
+.info{
+  margin-top:20px;
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+  display:none;
+}
+
+/* Desktop spacing upgrade */
+@media (min-width:768px){
+  body{/* padding:40px; */}
+}
+
+/* =========================
+   BOTTOM MENU CONTAINER
+   ========================= */
+#MenuContainer{
+  /* position:absolute; */
+  min-height:20px;
+  height: 92%;
+  bottom: 11px;
+  background: #ffffff4d;
+  padding: 2px 9px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 93%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+#menu_information{
+  display:flex;
+  flex-direction:column;
+  overflow-y:scroll;
+  /* min-height:20vh; */
+  height: 50%;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+#genre_buttons{
+  display:flex;
+  justify-content:space-around;
+  height: 30px;
+}
+
+.video_container{
+  /* min-height:20vh; */
+  height: max-content;
+  background-color: #00000000;
+  color:white;
+  width:80%;
+  margin:5px 0;
+  flex-direction: row;
+  display: flex;
+  padding: 0px 0px;
+  min-width: 89vw;
+  justify-content: space-around;
+  margin: 9px 0px;
+}
+
+/* =========================
+   POLYGON COLORS (USED IDS)
+   ========================= */
+polygon#only_upper_chest{
+  fill:#fd0505;
+  stroke:#000;
+}
+
+polygon#middle_chest{
+  fill:rgb(0,130,0);
+  stroke:#000;
+}
+
+polygon#lower_chest{
+  fill:rgb(255 223 31);
+  stroke:#000;
+}
+
+polygon#only_upper_abs{
+  fill:rgb(34, 0, 255);
+  stroke:#000;
+}
+
+polygon#lower_abs{
+  fill:#fd0505;
+  stroke:#000;
+}
+
+polygon#obliques{
+  fill:rgb(136 255 0);
+  stroke:#000;
+}
+
+polygon#all_legs{
+  fill:#057bfd;
+  stroke:#000;
+}
+
+/* back */
+polygon#lats{
+  fill:green;
+  stroke:#000;
+}
+
+polygon#lower_back{
+  fill:#fd0505;
+  stroke:#000;
+}
+
+polygon#middle_back{
+  fill:rgb(0, 191, 255);
+  stroke:#000;
+}
+
+polygon#traps{
+  fill:rgb(34, 0, 255);
+  stroke:#000;
+}
+
+polygon#rotor_cuff{
+  fill:rgb(71 221 162);
+  stroke:#000;
+}
+
+polygon#deltoid{
+  fill:rgb(255 223 31);
+  stroke:#000;
+}
+
+img {}
+
+img.thumbnail {
+    width: 160px;
+    align-self: flex-end;
+}
+
+button {
+    border: none;
+    background: none;
+    background-color: white;
+    padding: 4px 13px;
+    border-radius: 30px;
+}
+
+div#muscleType_container {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+}
+
+.details_container p {
+    color: #ffffff;
+}
+
+.details_container {
+    background-color: #ffffff00;
+    width: 150px;
+}
+
+div#youtube_video_container {
+    position: absolute;
+    top: 7%;
+    display: block;
+    width: 97%;
+    height: 79%;
+    display: flex;
+    flex-direction: column;
+}
+
+p#menu_icon {
+    position: fixed;
+    right: 31px;
+    color: wheat;
+    font-size: 34px;
+    top: 20px;
+    z-index: 9999;
+}
+
+div#swap {
+    background-image: url(swap.png);
+    height: 35px;
+    width: 35px;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 17px;
+    left: 19px;
+    z-index: 22;
+}
+
+
+@media only screen and (orientation: portrait) {
+  .bodyWrapper {
+    position: relative;
+    width: 100%;
+    border: 3px solid #1ae11a;
+}
+}
+
+div#all_pages {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    width: 60vw;
+    max-height: 100%;
+    min-width: 98vw;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+div#before_page {
+    /* width: 50vw; */
+    height: 100%;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    position: relative;
+}
+
+div#next_page {
+    width: 26%;
+    height: 100%;
+    min-width: 99vw;
+    border: 2px solid #ff00e7;
+    /* display: none; */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 46px;
+    flex-direction: column;
+    position: relative;
+}
+
+img.createthumbnail {
+    width: 100%;
+}
+
+.youtube_profile {
+    display: flex;
+    flex-direction: column;
+    margin: 13px 0px;
+}
+
+div#genre {
+    display: flex;
+}
+
+div#firstpage_menu {
+    width: 100%;
+    height: 7%;
+    border: 2px solid green;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div#genre {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 7px;
+}
+
+div#genre p {
+    background-color: grey;
+    border-radius: 14px;
+    padding: 1px 5px;
+}
+
+div#youtube_player {
+    height: 82%;
+}
+
+
+
+/* Chest */
+
+#all_chest {
+    fill: #ff4d67;
+}
+
+#only_upper_chest {
+    fill: #ff704d;
+}
+
+#only_middle_chest {
+    fill: #ff9f43;
+}
+
+#only_lower_chest {
+    fill: #ffcf4a;
+}
+
+
+/* Abs */
+
+#all_abs {
+    fill: #a56bff;
+}
+
+#only_upper_abs {
+    fill: #8b7bff;
+}
+
+#middle_abs {
+    fill: #6f8cff;
+}
+
+#lower_abs {
+    fill: #4fa3ff;
+}
+
+
+/* Legs */
+
+#all_legs {
+    fill: #22c58b;
+}
+
+#quads {
+    fill: #43d36f;
+}
+
+
+/* Shoulders */
+
+#frontal_shoulder {
+    fill: #00c2d7;
+}
+
+#middle_shoulder {
+    fill: #00a6c7;
+}
+
+
+/* Arms */
+
+#bicep {
+    fill: #e85dff;
+}
+
+#forearms {
+    fill: #c46bff;
+}
+
+#full_arms {
+    fill: #f05cff;
+}
+
+
+/* Core */
+
+#all_obliques {
+    fill: #73d13d;
+}
+
+#serratus {
+    fill: #9ad83f;
+}
+
+
+/* Back */
+
+#lats {
+    fill: #00c7a7;
+}
+
+#lower_back {
+    fill: #00a8a8;
+}
+
+#middle_back {
+    fill: #38bdf8;
+}
+
+#traps {
+    fill: #6574ff;
+}
+
+#rotor_cuff {
+    fill: #8f7cff;
+}
+
+#deltoid {
+    fill: #d66cff;
+}
+
+
+.overlay polygon {
+    cursor: pointer;
+    stroke: rgba(255, 255, 255, 0.45);
+    stroke-width: 2;
+    fill-opacity: 0.42;
+    vector-effect: non-scaling-stroke;
+    transition: fill-opacity 0.18s ease, filter 0.18s ease, stroke-width 0.18s ease, stroke 0.18s ease;
+    outline: none;
+}

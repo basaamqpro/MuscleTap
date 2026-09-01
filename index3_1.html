@@ -1,0 +1,2311 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Find workouts by selecting a muscle on an interactive body map."
+  >
+
+  <meta
+    name="theme-color"
+    content="#111820"
+  >
+
+  <link
+    rel="stylesheet"
+    href="index2_2.css"
+  >
+
+  <title>Muscle Map Workout</title>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       APP
+       ===================================================== -->
+
+  <main id="all_pages">
+
+
+    <!-- ===================================================
+         PAGE 1 — BODY MAP
+         =================================================== -->
+
+    <section
+      id="before_page"
+      aria-label="Muscle selection"
+    >
+
+
+      <!-- -----------------------------------------------
+           TOP BAR
+           ----------------------------------------------- -->
+
+      <header id="firstpage_menu">
+
+        <button
+          id="swap"
+          type="button"
+          aria-label="Switch between front and back body"
+          title="Switch body view"
+        ></button>
+
+      </header>
+
+
+      <!-- -----------------------------------------------
+           BODY MAP
+           ----------------------------------------------- -->
+
+      <div class="wrapper">
+
+
+        <!-- FRONT BODY -->
+
+        <div
+          id="frontwrapper"
+          class="bodyWrapper"
+        >
+
+          <img
+            src="human-body-frontal.png"
+            class="bodyImg"
+            alt="Front view of the human body"
+            draggable="false"
+          >
+
+
+          <svg
+            class="overlay"
+            viewBox="0 0 2000 3317"
+            aria-label="Interactive front muscle map"
+            role="img"
+          >
+
+            <!-- CHEST -->
+
+            <polygon
+              id="all_chest"
+              points="
+                907,604
+                872,606
+                773,649
+                743,670
+                734,703
+                743,779
+                782,857
+                851,873
+                957,836
+                985,717
+                957,613
+              "
+              tabindex="0"
+              aria-label="Chest"
+            />
+
+            <polygon
+              id="only_upper_chest"
+              points="
+                1245,687
+                1218,647
+                1112,604
+                1034,611
+                1020,668
+              "
+              tabindex="0"
+              aria-label="Upper chest"
+            />
+
+            <polygon
+              id="only_middle_chest"
+              points="
+                1239,689
+                1022,670
+                1003,758
+                1008,804
+                1172,790
+                1231,753
+                1262,705
+              "
+              tabindex="0"
+              aria-label="Middle chest"
+            />
+
+            <polygon
+              id="only_lower_chest"
+              points="
+                1252,732
+                1234,758
+                1172,793
+                1011,806
+                1034,841
+                1109,868
+                1169,868
+                1206,832
+                1229,793
+                1248,751
+              "
+              tabindex="0"
+              aria-label="Lower chest"
+            />
+
+
+            <!-- ABS -->
+
+            <polygon
+              id="only_upper_abs"
+              points="
+                1080,866
+                1047,855
+                987,836
+                990,945
+                1117,998
+                1112,898
+              "
+              tabindex="0"
+              aria-label="Upper abs"
+            />
+
+            <polygon
+              id="middle_abs"
+              points="
+                999,956
+                992,1039
+                997,1154
+                1109,1179
+                1121,1076
+                1119,1007
+                1066,977
+              "
+              tabindex="0"
+              aria-label="Middle abs"
+            />
+
+            <polygon
+              id="lower_abs"
+              points="
+                1100,1180
+                996,1175
+                996,1290
+                987,1509
+                1026,1509
+                1102,1278
+                1112,1230
+              "
+              tabindex="0"
+              aria-label="Lower abs"
+            />
+
+            <polygon
+              id="all_abs"
+              points="
+                983,855
+                890,866
+                877,880
+                854,963
+                860,1004
+                852,1062
+                854,1129
+                870,1223
+                913,1401
+                978,1511
+                990,1168
+                990,984
+              "
+              tabindex="0"
+              aria-label="Abdominals"
+            />
+
+
+            <!-- LEGS -->
+
+            <polygon
+              id="all_legs"
+              points="
+                754,1334
+                737,1457
+                718,1670
+                755,1930
+                792,2031
+                796,2363
+                854,2734
+                956,2715
+                967,2273
+                951,2158
+                969,1983
+                971,1842
+                988,1646
+                976,1550
+                877,1370
+                822,1303
+                775,1258
+              "
+              tabindex="0"
+              aria-label="Legs"
+            />
+
+            <polygon
+              id="quads"
+              points="
+                1144,1331
+                1077,1458
+                1010,1555
+                992,1681
+                1013,1843
+                1013,2022
+                1027,2147
+                1119,2186
+                1183,2089
+                1262,1734
+                1254,1493
+                1220,1343
+                1208,1264
+                1176,1297
+              "
+              tabindex="0"
+              aria-label="Quadriceps"
+            />
+
+
+            <!-- SHOULDERS -->
+
+            <polygon
+              id="frontal_shoulder"
+              points="
+                1132,604
+                1218,640
+                1254,686
+                1308,725
+                1365,765
+                1393,790
+                1386,730
+                1351,647
+                1280,638
+              "
+              tabindex="0"
+              aria-label="Front shoulder"
+            />
+
+            <polygon
+              id="middle_shoulder"
+              points="
+                1138,605
+                1269,637
+                1353,649
+                1311,605
+                1231,584
+              "
+              tabindex="0"
+              aria-label="Middle shoulder"
+            />
+
+
+            <!-- ARMS -->
+
+            <polygon
+              id="bicep"
+              points="
+                1261,711
+                1254,803
+                1256,881
+                1345,1022
+                1378,1077
+                1435,1068
+                1484,983
+                1396,792
+                1329,739
+              "
+              tabindex="0"
+              aria-label="Biceps"
+            />
+
+            <polygon
+              id="forearms"
+              points="
+                1380,1077
+                1435,1063
+                1484,985
+                1588,1095
+                1710,1262
+                1640,1319
+                1466,1179
+                1424,1137
+              "
+              tabindex="0"
+              aria-label="Forearms"
+            />
+
+            <polygon
+              id="full_arms"
+              points="
+                621,649
+                598,816
+                526,998
+                315,1301
+                390,1348
+                628,1103
+                739,873
+                704,788
+                778,585
+              "
+              tabindex="0"
+              aria-label="Arms"
+            />
+
+
+            <!-- CORE / SIDE -->
+
+            <polygon
+              id="all_obliques"
+              points="
+                867,879
+                818,897
+                735,936
+                770,1017
+                784,1125
+                774,1191
+                777,1251
+                887,1371
+                883,1321
+                848,1123
+                846,961
+              "
+              tabindex="0"
+              aria-label="Obliques"
+            />
+
+            <polygon
+              id="serratus"
+              points="
+                1226,858
+                1258,890
+                1216,1012
+                1136,968
+                1127,911
+                1117,883
+              "
+              tabindex="0"
+              aria-label="Serratus"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <!-- BACK BODY -->
+
+        <div
+          id="backwrapper"
+          class="bodyWrapper"
+        >
+
+          <img
+            src="human-body-back-new.png"
+            class="bodyImg"
+            alt="Back view of the human body"
+            draggable="false"
+          >
+
+
+          <svg
+            class="overlay"
+            viewBox="0 0 2000 3462"
+            aria-label="Interactive back muscle map"
+            role="img"
+          >
+
+            <polygon
+              id="lats"
+              points="
+                741,818
+                898,831
+                981,979
+                1006,1062
+                948,1101
+                881,1297
+                808,1278
+                812,1092
+              "
+              tabindex="0"
+              aria-label="Latissimus dorsi"
+            />
+
+            <polygon
+              id="lower_back"
+              points="
+                1006,1071
+                957,1108
+                890,1294
+                990,1371
+                1068,1377
+                1174,1302
+                1156,1186
+                1114,1103
+                1073,1064
+                1029,1064
+              "
+              tabindex="0"
+              aria-label="Lower back"
+            />
+
+            <polygon
+              id="middle_back"
+              points="
+                868,606
+                1218,610
+                1204,705
+                1186,813
+                1155,885
+                1114,933
+                1070,1048
+                1013,1059
+                964,935
+                905,832
+                886,726
+              "
+              tabindex="0"
+              aria-label="Middle back"
+            />
+
+            <polygon
+              id="traps"
+              points="
+                1123,449
+                1087,470
+                1098,505
+                1082,594
+                1204,596
+                1269,564
+                1277,530
+                1178,498
+              "
+              tabindex="0"
+              aria-label="Trapezius"
+            />
+
+            <polygon
+              id="rotor_cuff"
+              points="
+                1232,598
+                1326,540
+                1375,560
+                1428,618
+                1432,639
+                1451,685
+                1460,761
+                1387,676
+                1361,636
+                1303,616
+              "
+              tabindex="0"
+              aria-label="Rotator cuff"
+            />
+
+            <polygon
+              id="deltoid"
+              points="
+                1229,615
+                1208,686
+                1204,710
+                1188,801
+                1188,829
+                1324,825
+                1333,717
+                1383,695
+                1342,629
+              "
+              tabindex="0"
+              aria-label="Rear deltoid"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+
+      <!-- -----------------------------------------------
+           INFORMATION
+           ----------------------------------------------- -->
+
+      <div
+        class="info"
+        id="info"
+        aria-live="polite"
+      >
+        Tap a muscle section
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PAGE 2 — WORKOUT DISCOVERY
+         =================================================== -->
+
+    <section
+      id="next_page"
+      aria-label="Workout discovery"
+    >
+
+
+      <!-- -----------------------------------------------
+           PAGE HEADER
+           ----------------------------------------------- -->
+
+      <header class="workout_header">
+
+        <div class="workout_header_text">
+
+          <span class="workout_eyebrow">
+            WORKOUTS
+          </span>
+
+          <h1 id="selected_muscle">
+            Select a muscle
+          </h1>
+
+        </div>
+
+      </header>
+
+
+      <!-- -----------------------------------------------
+           FILTERS
+           ----------------------------------------------- -->
+
+      <nav
+        id="genre"
+        aria-label="Workout filters"
+      >
+      </nav>
+
+
+      <!-- -----------------------------------------------
+           WORKOUT CONTENT
+           ----------------------------------------------- -->
+
+      <div
+        id="MenuContainer"
+        aria-live="polite"
+        aria-label="Available workouts"
+      >
+
+        <!-- JavaScript inserts workout cards here -->
+
+      </div>
+
+
+      <!-- -----------------------------------------------
+           OPTIONAL MENU INFORMATION
+           ----------------------------------------------- -->
+
+      <div id="menu_information">
+
+        <div id="genre_buttons"></div>
+
+        <div id="muscleType_container"></div>
+
+      </div>
+
+
+      <!-- -----------------------------------------------
+           VIDEO PLAYER
+           ----------------------------------------------- -->
+
+      <div
+        id="youtube_video_container"
+        aria-label="Video player"
+      >
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+  
+/* =========================================================
+   MUSCLE MAP WORKOUT
+   Main Application JavaScript
+   ========================================================= */
+
+
+/* =========================================================
+   1. WORKOUT DATABASE
+   =========================================================
+
+   IMPORTANT:
+
+   The app does NOT need to know every property of a YouTube
+   video.
+
+   Only add information that you actually know.
+
+   A video can have multiple types.
+
+   type:
+   - Workout
+   - Follow Along
+   - Educational
+   - Exercise Tutorial
+
+   equipment:
+   - Bodyweight
+   - Dumbbell
+   - Bands
+   - Gym
+   ========================================================= */
+
+
+const workouts = [
+
+    /* =========================
+       CHEST
+       ========================= */
+
+    {
+        id: "chest-001",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=BkS1-El_WlE",
+
+        title: "The BEST HOME CHEST WORKOUT (NO EQUIPMENT NEEDED)",
+        channel: "THENX",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "chest-002",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=rxEMKXW2Wqs",
+
+        title: "Home Chest Workout | 10 Minutes (FOLLOW ALONG!)",
+        channel: "ATHLEAN-X",
+
+        type: ["Follow Along", "Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "chest-003",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=qwx1VV9vV1A",
+
+        title: "Most Effective CHEST Workout at HOME",
+        channel: "NEXT Workout",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "chest-004",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=_q_-adYzkh0",
+
+        title: "5 MINUTE CHEST WORKOUT (NO EQUIPMENT)",
+        channel: "BullyJuice",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "chest-005",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=w9iymJIDc-I",
+
+        title: "5 Min. Home Chest Workout (No Equipment Needed)",
+        channel: "Pierre Dalati",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "chest-006",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=Jf5_PJCFs-g",
+
+        title: "The BEST Push Up Workout for Chest & Triceps Growth",
+        channel: "TIFF x DAN",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "chest-007",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=QdT-Bgmp2u4",
+
+        title: "Best Chest Home Workout (Dumbbells Only)",
+        channel: "CHRIS HERIA",
+
+        type: ["Workout"],
+        equipment: ["Dumbbell"]
+    },
+
+    {
+        id: "chest-008",
+        muscle: "all_chest",
+
+        url: "https://www.youtube.com/watch?v=HY9i5BSC2GQ",
+
+        title: "Build a Big Chest with Bands",
+        channel: "ATHLEAN-X",
+
+        type: ["Workout"],
+        equipment: ["Bands"]
+    },
+
+
+    /* =========================
+       UPPER CHEST
+       ========================= */
+
+    {
+        id: "upper-chest-001",
+        muscle: "only_upper_chest",
+
+        url: "https://www.youtube.com/watch?v=mm47bCaCzpQ",
+
+        title: "20 MINUTE UPPER BODY WORKOUT (NO EQUIPMENT)",
+        channel: "BullyJuice",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "upper-chest-002",
+        muscle: "only_upper_chest",
+
+        url: "https://www.youtube.com/watch?v=49d_PratfaQ",
+
+        title: "5 Best Exercises For Upper Chest",
+        channel: "CHRIS HERIA",
+
+        type: ["Exercise Tutorial", "Educational"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "upper-chest-003",
+        muscle: "only_upper_chest",
+
+        url: "https://www.youtube.com/watch?v=dtm1ZPlp7AU",
+
+        title: "7 MIN HOME CHEST WORKOUT | FOLLOW ALONG",
+        channel: "CHRIS HERIA",
+
+        type: ["Follow Along", "Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "upper-chest-004",
+        muscle: "only_upper_chest",
+
+        url: "https://www.youtube.com/watch?v=hQ_K2rKSMjw",
+
+        title: "The Fastest Way To Build A MASSIVE Upper Chest",
+        channel: "Ryan Humiston",
+
+        type: ["Educational"],
+        equipment: ["Gym"]
+    },
+
+
+    /* =========================
+       LOWER CHEST
+       ========================= */
+
+    {
+        id: "lower-chest-001",
+        muscle: "only_lower_chest",
+
+        url: "https://www.youtube.com/watch?v=VKgvrl0DemI",
+
+        title: "Here's Why Your Lower Chest Sucks",
+        channel: "Ryan Humiston",
+
+        type: ["Educational"],
+        equipment: ["Gym"]
+    },
+
+    {
+        id: "lower-chest-002",
+        muscle: "only_lower_chest",
+
+        url: "https://www.youtube.com/watch?v=zsnDC0YL4Co",
+
+        title: "5 Min. Home LOWER Chest Workout",
+        channel: "Austin Dunham",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "lower-chest-003",
+        muscle: "only_lower_chest",
+
+        url: "https://www.youtube.com/watch?v=vAcrOkRywgk",
+
+        title: "Intense 5 Minute At Home Lower Chest Workout",
+        channel: "Anabolic Aliens",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+
+    /* =========================
+       ABS
+       ========================= */
+
+    {
+        id: "abs-001",
+        muscle: "all_abs",
+
+        url: "https://www.youtube.com/watch?v=Tn-XvYG9x7w",
+
+        title: "Get Abs In 60 Days (Using Science)",
+        channel: "Jeff Nippard",
+
+        type: ["Educational"],
+        equipment: ["Gym"]
+    },
+
+    {
+        id: "abs-002",
+        muscle: "all_abs",
+
+        url: "https://www.youtube.com/watch?v=3SUtOSaOn1M",
+
+        title: "10 Minute Beginner Dumbbell ABS Workout",
+        channel: "Midas Movement",
+
+        type: ["Workout"],
+        equipment: ["Dumbbell"]
+    },
+
+    {
+        id: "abs-003",
+        muscle: "all_abs",
+
+        url: "https://www.youtube.com/watch?v=Y0nXmTZ1Ibs",
+
+        title: "The ONLY 2 Exercises You Need For Six Pack Abs",
+        channel: "Jeremy Ethier",
+
+        type: ["Educational", "Exercise Tutorial"],
+        equipment: ["Gym"]
+    },
+
+    {
+        id: "abs-004",
+        muscle: "all_abs",
+
+        url: "https://www.youtube.com/watch?v=1G0y8D5rFDc",
+
+        title: "How To Build A Better Core & Six Pack Abs",
+        channel: "Jeff Nippard",
+
+        type: ["Educational"],
+        equipment: ["Gym"]
+    },
+
+    {
+        id: "upper-abs-001",
+        muscle: "only_upper_abs",
+
+        url: "https://www.youtube.com/watch?v=0_nKiv0i7PA",
+
+        title: "5 MINUTE ABS | UPPER AB WORKOUT",
+        channel: "TIFF x DAN",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "lower-abs-001",
+        muscle: "only_lower_abs",
+
+        url: "https://www.youtube.com/watch?v=TN4jrqVI8A4",
+
+        title: "10 Min ADVANCED LOWER AB Workout",
+        channel: "TIFF x DAN",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+
+    /* =========================
+       LEGS
+       ========================= */
+
+    {
+        id: "legs-001",
+        muscle: "all_legs",
+
+        url: "https://www.youtube.com/watch?v=q7rCeOa_m58",
+
+        title: "20 Min Complete Home Leg Workout",
+        channel: "THENX",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "legs-002",
+        muscle: "all_legs",
+
+        url: "https://www.youtube.com/watch?v=X0xt0fYTZv8",
+
+        title: "20 min LOWER BODY WORKOUT NO EQUIPMENT",
+        channel: "TIFF x DAN",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "legs-003",
+        muscle: "all_legs",
+
+        url: "https://www.youtube.com/watch?v=G5nxGTFBauM",
+
+        title: "8 Min Home Leg Workout | No Jumping",
+        channel: "THENX",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "legs-004",
+        muscle: "all_legs",
+
+        url: "https://www.youtube.com/watch?v=H6mRkx1x77k",
+
+        title: "The Ultimate Science-Based Leg Day For Muscle Growth",
+        channel: "Jeff Nippard",
+
+        type: ["Educational", "Workout"],
+        equipment: ["Gym"]
+    },
+
+    {
+        id: "quad-001",
+        muscle: "quads",
+
+        url: "https://www.youtube.com/watch?v=ogG1YHKPeL4",
+
+        title: "Best Bodyweight Quad Exercise",
+        channel: "Citizen Athletics",
+
+        type: ["Exercise Tutorial"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "quad-002",
+        muscle: "quads",
+
+        url: "https://www.youtube.com/watch?v=DDpa-P4CcFs",
+
+        title: "Intense 5 Minute At Home Quad Workout",
+        channel: "Anabolic Aliens",
+
+        type: ["Workout", "Follow Along"],
+        equipment: ["Bodyweight"]
+    },
+
+
+    /* =========================
+       BACK
+       ========================= */
+
+    {
+        id: "back-001",
+        muscle: "all_back",
+
+        url: "https://www.youtube.com/watch?v=HHZPRrGHaFw",
+
+        title: "Dumbbell Back Workout At Home",
+        channel: "Ryan Humiston",
+
+        type: ["Workout"],
+        equipment: ["Dumbbell"]
+    },
+
+    {
+        id: "back-002",
+        muscle: "all_back",
+
+        url: "https://www.youtube.com/watch?v=QqZV3JEoOlc",
+
+        title: "Do This Back Workout From Home",
+        channel: "THENX",
+
+        type: ["Workout"],
+        equipment: ["Bodyweight"]
+    },
+
+    {
+        id: "back-003",
+        muscle: "all_back",
+
+        url: "https://www.youtube.com/watch?v=fX36liNtKzw",
+
+        title: "The PERFECT Back Workout",
+        channel: "ATHLEAN-X",
+
+        type: ["Workout"],
+        equipment: ["Gym"]
+    },
+
+    {
+        id: "back-004",
+        muscle: "all_back",
+
+        url: "https://www.youtube.com/watch?v=12xHxUnBEiI",
+
+        title: "The Most Scientific Way to Train Your BACK",
+        channel: "Jeff Nippard",
+
+        type: ["Educational"],
+        equipment: ["Gym"]
+    }
+
+];
+
+
+/* =========================================================
+   2. APPLICATION STATE
+   ========================================================= */
+
+const state = {
+
+    selectedMuscle: null,
+
+    selectedType: "All",
+
+    selectedEquipment: "All",
+
+    searchTerm: "",
+
+    sort: "recommended",
+
+    currentVideo: null,
+
+    frontVisible: true
+
+};
+
+
+/* =========================================================
+   3. MUSCLE NAMES
+   ========================================================= */
+
+const muscleNames = {
+
+    all_chest: "Chest",
+    only_upper_chest: "Upper Chest",
+    only_middle_chest: "Middle Chest",
+    only_lower_chest: "Lower Chest",
+
+    only_upper_abs: "Upper Abs",
+    middle_abs: "Middle Abs",
+    lower_abs: "Lower Abs",
+    all_abs: "Abs",
+
+    all_legs: "Legs",
+    quads: "Quadriceps",
+
+    frontal_shoulder: "Front Shoulders",
+    middle_shoulder: "Side Shoulders",
+
+    bicep: "Biceps",
+    forearms: "Forearms",
+    full_arms: "Arms",
+
+    all_obliques: "Obliques",
+    serratus: "Serratus",
+
+    lats: "Lats",
+    lower_back: "Lower Back",
+    middle_back: "Middle Back",
+    traps: "Traps",
+    rotor_cuff: "Rotator Cuff",
+    deltoid: "Rear Shoulders"
+
+};
+
+
+/* =========================================================
+   4. ELEMENTS
+   ========================================================= */
+
+const menuContainer =
+    document.getElementById("MenuContainer");
+
+const genreContainer =
+    document.getElementById("genre");
+
+const videoContainer =
+    document.getElementById("youtube_video_container");
+
+const selectedMuscleElement =
+    document.getElementById("selected_muscle");
+
+const frontWrapper =
+    document.getElementById("frontwrapper");
+
+const backWrapper =
+    document.getElementById("backwrapper");
+
+const swapButton =
+    document.getElementById("swap");
+
+
+/* =========================================================
+   5. LOCAL STORAGE
+   ========================================================= */
+
+function getFavourites() {
+
+    return JSON.parse(
+        localStorage.getItem("muscleMapFavourites")
+    ) || [];
+
+}
+
+
+function saveFavourites(favourites) {
+
+    localStorage.setItem(
+        "muscleMapFavourites",
+        JSON.stringify(favourites)
+    );
+
+}
+
+
+function getHistory() {
+
+    return JSON.parse(
+        localStorage.getItem("muscleMapHistory")
+    ) || [];
+
+}
+
+
+function saveHistory(history) {
+
+    localStorage.setItem(
+        "muscleMapHistory",
+        JSON.stringify(history)
+    );
+
+}
+
+
+/* =========================================================
+   6. YOUTUBE HELPERS
+   ========================================================= */
+
+function getYouTubeId(url) {
+
+    try {
+
+        const urlObject = new URL(url);
+
+        return urlObject.searchParams.get("v");
+
+    } catch {
+
+        return null;
+
+    }
+
+}
+
+
+function getYouTubeThumbnail(url) {
+
+    const videoId = getYouTubeId(url);
+
+    if (!videoId) {
+
+        return "";
+
+    }
+
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+}
+
+
+/* =========================================================
+   7. BODY MAP
+   ========================================================= */
+
+const polygons =
+    document.querySelectorAll(".overlay polygon");
+
+
+polygons.forEach(polygon => {
+
+    polygon.addEventListener("click", () => {
+
+        selectMuscle(polygon.id);
+
+    });
+
+
+    /*
+       Keyboard accessibility.
+
+       Users can focus a polygon with TAB
+       and press ENTER or SPACE.
+    */
+
+    polygon.addEventListener("keydown", event => {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            selectMuscle(polygon.id);
+
+        }
+
+    });
+
+});
+
+
+function selectMuscle(muscleId) {
+
+    state.selectedMuscle = muscleId;
+
+    state.selectedType = "All";
+    state.selectedEquipment = "All";
+    state.searchTerm = "";
+
+    updateSelectedMuscle();
+
+    highlightMuscle(muscleId);
+
+    renderFilters();
+
+    renderWorkouts();
+
+    goToWorkoutPage();
+
+}
+
+
+function updateSelectedMuscle() {
+
+    const name =
+        muscleNames[state.selectedMuscle] ||
+        "Workouts";
+
+    selectedMuscleElement.textContent = name;
+
+}
+
+
+function highlightMuscle(muscleId) {
+
+    polygons.forEach(polygon => {
+
+        polygon.classList.remove("active");
+
+    });
+
+
+    const selected =
+        document.getElementById(muscleId);
+
+    if (selected) {
+
+        selected.classList.add("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   8. FRONT / BACK
+   ========================================================= */
+
+swapButton.addEventListener("click", () => {
+
+    if (state.frontVisible) {
+
+        frontWrapper.style.display = "none";
+        backWrapper.style.display = "flex";
+
+        state.frontVisible = false;
+
+    } else {
+
+        frontWrapper.style.display = "flex";
+        backWrapper.style.display = "none";
+
+        state.frontVisible = true;
+
+    }
+
+});
+
+
+/* =========================================================
+   9. FIND WORKOUTS
+   ========================================================= */
+
+function getSelectedWorkouts() {
+
+    if (!state.selectedMuscle) {
+
+        return [];
+
+    }
+
+
+    let results = workouts.filter(workout =>
+
+        workout.muscle === state.selectedMuscle
+
+    );
+
+
+    /*
+       TYPE FILTER
+    */
+
+    if (state.selectedType !== "All") {
+
+        results = results.filter(workout =>
+
+            workout.type.includes(
+                state.selectedType
+            )
+
+        );
+
+    }
+
+
+    /*
+       EQUIPMENT FILTER
+    */
+
+    if (state.selectedEquipment !== "All") {
+
+        results = results.filter(workout =>
+
+            workout.equipment.includes(
+                state.selectedEquipment
+            )
+
+        );
+
+    }
+
+
+    /*
+       SEARCH
+    */
+
+    if (state.searchTerm.trim() !== "") {
+
+        const search =
+            state.searchTerm.toLowerCase();
+
+        results = results.filter(workout => {
+
+            return (
+
+                workout.title
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                workout.channel
+                    .toLowerCase()
+                    .includes(search)
+
+            );
+
+        });
+
+    }
+
+
+    /*
+       SORT
+    */
+
+    if (state.sort === "title") {
+
+        results.sort((a, b) =>
+
+            a.title.localeCompare(b.title)
+
+        );
+
+    }
+
+
+    return results;
+
+}
+
+
+/* =========================================================
+   10. FILTER DATA
+   ========================================================= */
+
+function getAvailableTypes() {
+
+    const selected =
+        workouts.filter(workout =>
+
+            workout.muscle === state.selectedMuscle
+
+        );
+
+
+    const types = new Set();
+
+
+    selected.forEach(workout => {
+
+        workout.type.forEach(type => {
+
+            types.add(type);
+
+        });
+
+    });
+
+
+    return [...types];
+
+}
+
+
+function getAvailableEquipment() {
+
+    const selected =
+        workouts.filter(workout =>
+
+            workout.muscle === state.selectedMuscle
+
+        );
+
+
+    const equipment = new Set();
+
+
+    selected.forEach(workout => {
+
+        workout.equipment.forEach(item => {
+
+            equipment.add(item);
+
+        });
+
+    });
+
+
+    return [...equipment];
+
+}
+
+
+/* =========================================================
+   11. FILTER UI
+   ========================================================= */
+
+function renderFilters() {
+
+    genreContainer.innerHTML = "";
+
+
+    /*
+       TYPE FILTERS
+    */
+
+    const types = [
+        "All",
+        ...getAvailableTypes()
+    ];
+
+
+    types.forEach(type => {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = type;
+
+        button.classList.add("filter_button");
+
+
+        if (state.selectedType === type) {
+
+            button.classList.add("active");
+
+        }
+
+
+        button.addEventListener("click", () => {
+
+            state.selectedType = type;
+
+            renderFilters();
+            renderWorkouts();
+
+        });
+
+
+        genreContainer.appendChild(button);
+
+    });
+
+
+    /*
+       EQUIPMENT FILTERS
+    */
+
+    const equipmentTypes =
+        getAvailableEquipment();
+
+
+    equipmentTypes.forEach(equipment => {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = equipment;
+
+        button.classList.add(
+            "equipment_button"
+        );
+
+
+        if (
+            state.selectedEquipment === equipment
+        ) {
+
+            button.classList.add("active");
+
+        }
+
+
+        button.addEventListener("click", () => {
+
+            if (
+                state.selectedEquipment === equipment
+            ) {
+
+                state.selectedEquipment = "All";
+
+            } else {
+
+                state.selectedEquipment = equipment;
+
+            }
+
+            renderFilters();
+            renderWorkouts();
+
+        });
+
+
+        genreContainer.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   12. WORKOUT CARD
+   ========================================================= */
+
+function createWorkoutCard(workout) {
+
+    const card =
+        document.createElement("article");
+
+    card.className = "video_container";
+
+    card.dataset.id = workout.id;
+
+
+    /*
+       THUMBNAIL
+    */
+
+    const thumbnail =
+        document.createElement("img");
+
+    thumbnail.className = "thumbnail";
+
+    thumbnail.src =
+        getYouTubeThumbnail(workout.url);
+
+    thumbnail.alt =
+        `${workout.title} thumbnail`;
+
+    thumbnail.loading = "lazy";
+
+
+    /*
+       DETAILS
+    */
+
+    const details =
+        document.createElement("div");
+
+    details.className =
+        "details_container";
+
+
+    const channel =
+        document.createElement("p");
+
+    channel.className =
+        "create_channel_name";
+
+    channel.textContent =
+        workout.channel;
+
+
+    const title =
+        document.createElement("h2");
+
+    title.className =
+        "create_video_title";
+
+    title.textContent =
+        workout.title;
+
+
+    /*
+       TYPE LABELS
+    */
+
+    const typeContainer =
+        document.createElement("div");
+
+    typeContainer.className =
+        "video_types";
+
+
+    workout.type.forEach(type => {
+
+        const tag =
+            document.createElement("span");
+
+        tag.className = "video_tag";
+
+        tag.textContent = type;
+
+        typeContainer.appendChild(tag);
+
+    });
+
+
+    /*
+       EQUIPMENT
+    */
+
+    const equipment =
+        document.createElement("p");
+
+    equipment.className =
+        "video_equipment";
+
+    equipment.textContent =
+        workout.equipment.join(" • ");
+
+
+    /*
+       ACTIONS
+    */
+
+    const actions =
+        document.createElement("div");
+
+    actions.className =
+        "video_actions";
+
+
+    const watchButton =
+        document.createElement("button");
+
+    watchButton.className =
+        "watch_button";
+
+    watchButton.textContent =
+        "Watch";
+
+
+    watchButton.addEventListener("click", () => {
+
+        openVideo(workout);
+
+    });
+
+
+    const favouriteButton =
+        document.createElement("button");
+
+    favouriteButton.className =
+        "favourite_button";
+
+    updateFavouriteButton(
+        favouriteButton,
+        workout.id
+    );
+
+
+    favouriteButton.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+            toggleFavourite(workout.id);
+
+            updateFavouriteButton(
+                favouriteButton,
+                workout.id
+            );
+
+        }
+    );
+
+
+    /*
+       BUILD CARD
+    */
+
+    details.appendChild(channel);
+    details.appendChild(title);
+    details.appendChild(typeContainer);
+    details.appendChild(equipment);
+
+
+    actions.appendChild(watchButton);
+    actions.appendChild(favouriteButton);
+
+
+    card.appendChild(thumbnail);
+    card.appendChild(details);
+    card.appendChild(actions);
+
+
+    /*
+       Clicking the card also opens video.
+    */
+
+    card.addEventListener("click", event => {
+
+        if (
+            event.target.tagName === "BUTTON"
+        ) {
+
+            return;
+
+        }
+
+        openVideo(workout);
+
+    });
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   13. RENDER WORKOUTS
+   ========================================================= */
+
+function renderWorkouts() {
+
+    menuContainer.innerHTML = "";
+
+
+    const results =
+        getSelectedWorkouts();
+
+
+    /*
+       RESULT COUNT
+    */
+
+    const resultCount =
+        document.createElement("p");
+
+    resultCount.className =
+        "result_count";
+
+    resultCount.textContent =
+        `${results.length} workout${
+            results.length === 1 ? "" : "s"
+        } found`;
+
+
+    menuContainer.appendChild(resultCount);
+
+
+    /*
+       EMPTY STATE
+    */
+
+    if (results.length === 0) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.className =
+            "empty_state";
+
+
+        const heading =
+            document.createElement("h2");
+
+        heading.textContent =
+            "No videos found";
+
+
+        const text =
+            document.createElement("p");
+
+        text.textContent =
+            "Try another filter or search.";
+
+        empty.appendChild(heading);
+        empty.appendChild(text);
+
+        menuContainer.appendChild(empty);
+
+        return;
+
+    }
+
+
+    /*
+       CREATE CARDS
+    */
+
+    results.forEach(workout => {
+
+        const card =
+            createWorkoutCard(workout);
+
+        menuContainer.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   14. VIDEO PLAYER
+   ========================================================= */
+
+function openVideo(workout) {
+
+    state.currentVideo = workout;
+
+
+    const videoId =
+        getYouTubeId(workout.url);
+
+
+    if (!videoId) {
+
+        return;
+
+    }
+
+
+    videoContainer.innerHTML = "";
+
+
+    /*
+       PLAYER HEADER
+    */
+
+    const header =
+        document.createElement("div");
+
+    header.className =
+        "video_player_header";
+
+
+    const title =
+        document.createElement("h2");
+
+    title.textContent =
+        workout.title;
+
+
+    const closeButton =
+        document.createElement("button");
+
+    closeButton.textContent =
+        "×";
+
+    closeButton.className =
+        "close_video";
+
+
+    closeButton.setAttribute(
+        "aria-label",
+        "Close video"
+    );
+
+
+    closeButton.addEventListener(
+        "click",
+        closeVideo
+    );
+
+
+    header.appendChild(title);
+    header.appendChild(closeButton);
+
+
+    /*
+       YOUTUBE IFRAME
+    */
+
+    const iframe =
+        document.createElement("iframe");
+
+
+    iframe.src =
+        `https://www.youtube.com/embed/${videoId}`;
+
+
+    iframe.title =
+        workout.title;
+
+
+    iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+    iframe.allowFullscreen = true;
+
+
+    /*
+       BUILD PLAYER
+    */
+
+    videoContainer.appendChild(header);
+    videoContainer.appendChild(iframe);
+
+
+    videoContainer.style.display =
+        "block";
+
+
+    /*
+       SAVE TO HISTORY
+    */
+
+    addToHistory(workout.id);
+
+}
+
+
+/* =========================================================
+   15. CLOSE VIDEO
+   ========================================================= */
+
+function closeVideo() {
+
+    videoContainer.innerHTML = "";
+
+    videoContainer.style.display =
+        "none";
+
+    state.currentVideo = null;
+
+}
+
+
+/* =========================================================
+   16. FAVOURITES
+   ========================================================= */
+
+function isFavourite(id) {
+
+    return getFavourites().includes(id);
+
+}
+
+
+function toggleFavourite(id) {
+
+    let favourites =
+        getFavourites();
+
+
+    if (favourites.includes(id)) {
+
+        favourites =
+            favourites.filter(
+                favouriteId =>
+                    favouriteId !== id
+            );
+
+    } else {
+
+        favourites.push(id);
+
+    }
+
+
+    saveFavourites(favourites);
+
+}
+
+
+function updateFavouriteButton(
+    button,
+    id
+) {
+
+    if (isFavourite(id)) {
+
+        button.textContent =
+            "♥";
+
+        button.classList.add("active");
+
+    } else {
+
+        button.textContent =
+            "♡";
+
+        button.classList.remove("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   17. WATCH HISTORY
+   ========================================================= */
+
+function addToHistory(id) {
+
+    let history =
+        getHistory();
+
+
+    /*
+       Remove existing occurrence.
+    */
+
+    history =
+        history.filter(
+            historyId =>
+                historyId !== id
+        );
+
+
+    /*
+       Add newest item first.
+    */
+
+    history.unshift(id);
+
+
+    /*
+       Keep only latest 20.
+    */
+
+    history =
+        history.slice(0, 20);
+
+
+    saveHistory(history);
+
+}
+
+
+/* =========================================================
+   18. PAGE NAVIGATION
+   ========================================================= */
+
+function goToWorkoutPage() {
+
+    const pages =
+        document.getElementById("all_pages");
+
+
+    const nextPage =
+        document.getElementById("next_page");
+
+
+    if (!pages || !nextPage) {
+
+        return;
+
+    }
+
+
+    /*
+       Scroll horizontally to Page 2.
+    */
+
+    nextPage.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start"
+    });
+
+}
+
+
+/* =========================================================
+   19. SEARCH
+   =========================================================
+
+   This function can be connected to a search box later.
+
+   Example:
+
+   searchWorkouts("chest");
+   ========================================================= */
+
+function searchWorkouts(value) {
+
+    state.searchTerm = value;
+
+    renderWorkouts();
+
+}
+
+
+/* =========================================================
+   20. RESET FILTERS
+   ========================================================= */
+
+function resetFilters() {
+
+    state.selectedType = "All";
+
+    state.selectedEquipment = "All";
+
+    state.searchTerm = "";
+
+    renderFilters();
+
+    renderWorkouts();
+
+}
+
+
+/* =========================================================
+   21. GLOBAL ESCAPE KEY
+   ========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        closeVideo();
+
+    }
+
+});
+
+
+/* =========================================================
+   22. INITIAL STATE
+   ========================================================= */
+
+frontWrapper.style.display = "flex";
+
+backWrapper.style.display = "none";
+
+videoContainer.style.display = "none";
+
+
+/* =========================================================
+   23. DEVELOPMENT TEST
+   ========================================================= */
+
+console.log(
+    `Muscle Map Workout loaded with ${workouts.length} videos.`
+);
+
+
+  </script>
+
+</body>
+
+</html>
+```
