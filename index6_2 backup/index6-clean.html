@@ -3,24 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MuscleTap</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Mobile Body Map</title>
+  <link rel="stylesheet" href="index6-clean-v2.css">
 </head>
 <body>
   <div id="all_pages">
     <div id="before_page">
       <div id="bodymap_menu">
         <div id="swap"></div>
-        <button id="favoritesButton" type="button">♥ Favorites</button>
-      </div>
-
-   <div id="mapHeading">
-        <h1>MuscleTap</h1>
-        <p>Tap a muscle to explore videos</p>
       </div>
 
       <div class="wrapper">
-           
         <div id="frontwrapper" class="bodyWrapper">
           <img src="human-body-frontal.png" class="bodyImg" alt="Front view of human body">
 
@@ -57,10 +50,10 @@
             <polygon id="triceps" aria-label="triceps" points="1397,700 1340,721 1333,820 1319,892 1368,988 1404,1052 1423,1103 1466,1090 1496,1036 1534,995 1490,878 1467,824 1460,776" />
             <polygon id="middle_back" aria-label="middle back" points="1223,604 1050,606 1042,855 1054,1057 1093,970 1183,836" />
             <polygon id="traps" aria-label="traps" points="1049,449 1050,539 1050,606 1216,604 1282,567 1292,537 1234,525 1178,497 1132,465" />
-            <polygon id="full_back" aria-label="all back" points="1045,603 863,608 750,622 741,714 745,820 771,956 799,1025 815,1138 805,1228 805,1281 960,1354 987,1373 1040,1370 1043,1057 1043,1002 1045,672" />
+            <polygon id="all_back" aria-label="all back" points="1045,603 863,608 750,622 741,714 745,820 771,956 799,1025 815,1138 805,1228 805,1281 960,1354 987,1373 1040,1370 1043,1057 1043,1002 1045,672" />
             <polygon id="glutes" aria-label="glutes" points="1262,1294 1174,1338 1089,1401 1042,1461 1040,1562 1077,1651 1225,1675 1268,1675 1305,1548 1277,1370" />
             <polygon id="hamstring" aria-label="hamstring" points="1314,1679 1229,1677 1077,1654 1045,1615 1034,1725 1057,1976 1056,2094 1080,2239 1146,2163 1236,2204 1248,2046 1280,1978 1298,1879 1314,1741" />
-            <polygon id="calves" aria-label="calf" points="1231,2204 1148,2165 1080,2236 1054,2402 1059,2504 1070,2545 1098,2536 1135,2472 1151,2508 1199,2518 1225,2513 1246,2398 1245,2342" />
+            <polygon id="calf" aria-label="calf" points="1231,2204 1148,2165 1080,2236 1054,2402 1059,2504 1070,2545 1098,2536 1135,2472 1151,2508 1199,2518 1225,2513 1246,2398 1245,2342" />
           </svg>
         </div>
 
@@ -71,16 +64,10 @@
     <div id="next_page">
       <div id="exercise_menu">
         <button id="backtodiagram" type="button">Back</button>
-        
       </div>
 
-      <div id="Topic">
-        <h2 id="muscleName"></h2>
-        <h2 id="excerciseNo"></h2>
-      </div>
-      <div id="genre"></div>
       <div id="MenuContainer"></div>
-      
+      <div id="genre"></div>
 
       <div id="youtube_video_container">
         <button id="Exityt" type="button">Exit YouTube</button>
@@ -89,9 +76,9 @@
     </div>
   </div>
 
-  <script src="data.js"></script>
+  <script src="index6.js"></script>
   <script>
-    var excercise_dictionary = {
+    excercise_dictionary = {
       all_chest: all_chest,
       only_upper_chest: only_upper_chest,
       lower_chest: lower_chest,
@@ -100,7 +87,7 @@
       all_abs: all_abs,
       all_legs: all_legs,
       hamstring: hamstring,
-      only_quads: only_quads,
+      only_quads, only_quads,
       frontal_anterior_deltoids: frontal_anterior_deltoids,
       full_shoulder: full_shoulder,
       full_arms: full_arms,
@@ -122,130 +109,52 @@
       calves: calves,
       full_back: full_back,
       triceps: triceps,
-    };
+    }
 
-    var genre_p_type = "all";
-    var temp_genre = [];
-    var keymem = "";
-    var viewingFavorites = false;
-    
+    var genre_p_type = "all"
 
-    
-    var nodeList = document.querySelectorAll("polygon");
-
+    let nodeList = document.querySelectorAll("polygon");
     for (let i = 0; i < nodeList.length; i++) {
       nodeList[i].onclick = function() {
-        viewingFavorites = false;
-        document.getElementById("MenuContainer").innerHTML = "";
-        document.getElementById("genre").innerHTML = "";
-        temp_genre = ["all"];
-        keymem = this.id;
-
-        nodeList.forEach(function(polygon) {
-          polygon.classList.remove("active");
-        });
-
-        this.classList.add("active");
-
-        if (excercise_dictionary[keymem]) {
-          document.getElementById("muscleName").innerText = formatMuscleName(keymem);
-          document.getElementById("excerciseNo").innerText = excercise_dictionary[keymem].length + " Exercises";
-
-          for (let a = 0; a < excercise_dictionary[keymem].length; a++) {
-            create_section(excercise_dictionary[keymem][a]);
-            createGeneres(excercise_dictionary[keymem][a].tag);
+        document.getElementById("MenuContainer").innerHTML = ""
+        temp_genre = []
+        temp_genre.push("all")
+        console.log(this.id)
+        keymem = this.id
+        if(excercise_dictionary[keymem]) {
+          for(a = 0; a<=excercise_dictionary[keymem].length+-1; a++) {
+            console.log(excercise_dictionary[keymem][a])
+            create_section(excercise_dictionary[keymem][a])
+            createGeneres(excercise_dictionary[keymem][a].tag)
           }
 
-          for (let c = 0; c < temp_genre.length; c++) {
+          for(c=0; c<=temp_genre.length+-1; c++) {
             var genere_p = document.createElement("p");
-            genere_p.innerText = temp_genre[c];
-
-            // 1. Make All active by default
-            if (temp_genre[c] == "all") {
-              genere_p.classList.add("activeGenre");
-            }
+            genere_p.innerText = temp_genre[c]
 
             genere_p.onclick = function() {
-              var genreButtons = document.querySelectorAll("#genre p");
-
-              genreButtons.forEach(function(button) {
-                button.classList.remove("activeGenre");
-              });
-
-              this.classList.add("activeGenre");
-              genre_p_type = this.textContent;
-              document.getElementById("MenuContainer").innerHTML = "";
-
-              var filteredCount = 0;
-
-              for (let a = 0; a < excercise_dictionary[keymem].length; a++) {
-                if (genre_p_type == "all") {
-                  create_section(excercise_dictionary[keymem][a]);
-                  filteredCount++;
+              genre_p_type = this.innerText
+              document.getElementById("MenuContainer").innerHTML = ""
+              for(a = 0; a<=excercise_dictionary[keymem].length+-1; a++) {
+                if(genre_p_type == "all") {
+                  create_section(excercise_dictionary[keymem][a])
                 } else {
-                  if (excercise_dictionary[keymem][a].tag == genre_p_type) {
-                    create_section(excercise_dictionary[keymem][a]);
-                    filteredCount++;
+                  if(excercise_dictionary[keymem][a].tag == genre_p_type) {
+                    create_section(excercise_dictionary[keymem][a])
                   }
                 }
               }
-
-              document.getElementById("excerciseNo").innerText = filteredCount + " Exercises";
-            };
-
-            document.getElementById("genre").appendChild(genere_p);
+            }
           }
+
+          document.getElementById("genre").appendChild(genere_p)
         }
-
-        const container = document.getElementById("all_pages");
-
-          container.scrollTo({
-            left: window.innerWidth,
-            behavior: "smooth"
-          });
-      };
-    }
-
-    function formatMuscleName(name) {
-      var muscleNames = {
-        all_chest: "Chest",
-        only_upper_chest: "Upper Chest",
-        middle_chest: "Middle Chest",
-        lower_chest: "Lower Chest",
-        all_abs: "Abs",
-        only_upper_abs: "Upper Abs",
-        middle_abs: "Middle Abs",
-        lower_abs: "Lower Abs",
-        all_legs: "Legs",
-        full_legs: "Full Legs",
-        only_quads: "Quadriceps",
-        hamstring: "Hamstrings",
-        calves: "Calves",
-        glutes: "Glutes",
-        frontal_anterior_deltoids: "Anterior Deltoids",
-        medial_deltoid: "Medial Deltoids",
-        full_shoulder: "Shoulders",
-        full_arms: "Arms",
-        biceps: "Biceps",
-        triceps: "Triceps",
-        forearms: "Forearms",
-        obliques: "Obliques",
-        serratus: "Serratus",
-        full_back: "Back",
-        middle_back: "Middle Back",
-        lower_back: "Lower Back",
-        lats: "Lats",
-        traps: "Traps",
-        rear_delts: "Rear Deltoids",
-        rotator_cuffs: "Rotator Cuffs"
-      };
-
-      return muscleNames[name] || name.replaceAll("_", " ");
+      }
     }
 
     var frontWrapper = document.getElementById("frontwrapper");
     var backWrapper = document.getElementById("backwrapper");
-    frontWrapper.style.display = "flex";
+    frontWrapper.style.display = "flex"
 
     document.getElementById("swap").onclick = function() {
       if (frontWrapper.style.display === "flex") {
@@ -257,25 +166,35 @@
       }
     };
 
+    temp_genre = []
+
     function createGeneres(tg) {
-      if (temp_genre.includes(tg)) {
-        return;
+      console.log("ttttttttttttt"+tg)
+
+      if(temp_genre.includes(tg)) {
+        return 2
+      } else {
+        temp_genre.push(tg)
       }
 
-      temp_genre.push(tg);
+      console.log(temp_genre)
     }
 
     function create_section(para) {
-      var paralink = para.youtube;
-      var parayt_title = para.title;
-      var para_channel_name = para.channel;
+      var paralink = para.youtube
+      var paramuscle_target = para.muscleTarget
+      var para_genre = para.tag
+      var parayt_title = para.title
+      var para_channel_name = para.channel
+
+      var create_section = "example.com"
 
       var youtube_profile = document.createElement("div");
-      youtube_profile.setAttribute("class", "youtube_profile");
+      youtube_profile.setAttribute("class", "youtube_profile")
 
       var createthumbnail = document.createElement("img");
       createthumbnail.setAttribute("class", "createthumbnail");
-      createthumbnail.src = getYouTubeThumbnail(paralink);
+      createthumbnail.src = getYouTubeThumbnail(paralink)
 
       var create_channel_name = document.createElement("p");
       create_channel_name.setAttribute("class", "create_channel_name");
@@ -285,151 +204,28 @@
       create_video_title.setAttribute("class", "create_video_title");
       create_video_title.innerText = parayt_title;
 
-      var create_tag = document.createElement("p");
-      create_tag.setAttribute("class", "create_tag");
-      create_tag.innerText = para.tag;
-
-      var favorite_button = document.createElement("button");
-      favorite_button.setAttribute("class", "favorite_button");
-
-      // 2. Restore saved favorites as a filled heart
-      var favorites = getFavorites();
-
-      var alreadyFavorite = favorites.some(function(item) {
-        return item.youtube == para.youtube;
-      });
-
-      if (alreadyFavorite) {
-        favorite_button.innerText = "♥";
-      } else {
-        favorite_button.innerText = "♡";
-      }
-
-      favorite_button.onclick = function(event) {
-        event.stopPropagation();
-
-        var favorites = getFavorites();
-
-        var alreadyFavorite = favorites.some(function(item) {
-          return item.youtube == para.youtube;
-        });
-
-        if (alreadyFavorite) {
-
-              favorites = favorites.filter(function(item) {
-                  return item.youtube != para.youtube;
-              });
-
-              favorite_button.innerText = "♡";
-
-          } else {
-
-              favorites.push(para);
-
-              favorite_button.innerText = "♥";
-          }
-
-          saveFavorites(favorites);
-
-          if (viewingFavorites) {
-              showFavorites();
-          }
-      };
-
       youtube_profile.onclick = function() {
         document.getElementById("youtube_video_container").style.display = "flex";
-        playYouTube(paralink);
-      };
+        playYouTube(paralink)
+      }
 
       youtube_profile.appendChild(createthumbnail);
       youtube_profile.appendChild(create_channel_name);
       youtube_profile.appendChild(create_video_title);
-      youtube_profile.appendChild(create_tag);
-      youtube_profile.appendChild(favorite_button);
 
-      document.getElementById("MenuContainer").appendChild(youtube_profile);
+      document.getElementById("MenuContainer").appendChild(youtube_profile)
     }
 
-    function getFavorites() {
-      var savedFavorites = localStorage.getItem("muscleMapFavorites");
+    function getYouTubeThumbnail(url){
+      var videoId = url.split("v=")[1];
 
-      if (savedFavorites) {
-        return JSON.parse(savedFavorites);
+      if(videoId.indexOf("&") !== -1){
+        videoId = videoId.split("&")[0];
       }
 
-      return [];
+      var thumbnail = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+      return thumbnail;
     }
-
-    function saveFavorites(favorites) {
-      localStorage.setItem("muscleMapFavorites", JSON.stringify(favorites));
-    }
-
-    // 3. Show saved favorites
-    function showFavorites() {
-
-    var favorites = getFavorites();
-
-    document.getElementById("MenuContainer").innerHTML = "";
-    document.getElementById("genre").innerHTML = "";
-
-    document.getElementById("muscleName").innerText =
-        "Favorites";
-
-    document.getElementById("excerciseNo").innerText =
-        favorites.length + " Videos";
-
-    if (favorites.length == 0) {
-
-        var emptyMessage = document.createElement("p");
-
-        emptyMessage.setAttribute(
-            "class",
-            "favorites_empty"
-        );
-
-        emptyMessage.innerText =
-            "No favorites yet. Save videos you want to watch again.";
-
-        document
-            .getElementById("MenuContainer")
-            .appendChild(emptyMessage);
-
-        return;
-    }
-
-    for (let i = 0; i < favorites.length; i++) {
-
-        create_section(favorites[i]);
-    }
-}
-
-    document.getElementById("favoritesButton").onclick = function() {
-        const container = document.getElementById("all_pages");
-
-          container.scrollTo({
-            left: window.innerWidth,
-            behavior: "smooth"
-          });
-      
-      viewingFavorites = true;
-      showFavorites();
-    };
-
-    // YOUTUBE HELPERS — left as you had them
-    function getYouTubeThumbnail(url) {
-    var videoId = url.split("v=")[1];
-
-    if (videoId.indexOf("&") !== -1) {
-        videoId = videoId.split("&")[0];
-    }
-
-    var thumbnail =
-        "https://img.youtube.com/vi/" +
-        videoId +
-        "/hqdefault.jpg";
-
-    return thumbnail;
-}
 
     function playYouTube(url) {
       var urlParams = new URLSearchParams(new URL(url).search);
@@ -442,6 +238,8 @@
       container.innerHTML = "";
 
       var iframe = document.createElement("iframe");
+      iframe.style.width = "100%";
+      iframe.height = "315";
       iframe.src = embedUrl;
       iframe.title = "YouTube video player";
       iframe.setAttribute("frameborder", "0");
@@ -456,17 +254,15 @@
 
     document.getElementById("Exityt").onclick = function() {
       document.getElementById("youtube_video_container").style.display = "none";
-      document.getElementById("youtube_player").innerHTML = "";
-    };
+    }
 
     document.getElementById("backtodiagram").onclick = function() {
       const container = document.getElementById("all_pages");
-
       container.scrollTo({
         left: 0,
         behavior: "smooth"
       });
-    };
+    }
   </script>
 </body>
 </html>

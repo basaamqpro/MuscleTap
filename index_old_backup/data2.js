@@ -386,6 +386,72 @@ var all_legs = [
 ];
 
 
+var all_back = [
+  {
+    youtube: "https://www.youtube.com/watch?v=HHZPRrGHaFw",
+    muscleTarget: "all_back",
+    tag: "dumbbell",
+    title: "Dumbbell Back Workout At Home - (Light Weight = BIG GAINS!!)",
+    channel: "Ryan Humiston"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=J6de47GLTKQ",
+    muscleTarget: "all_back",
+    tag: "body weight",
+    title: "At Home Back Workout - Bodyweight Exercises - NO EQUIPMENT!",
+    channel: "Tone and Tighten"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=QqZV3JEoOlc",
+    muscleTarget: "all_back",
+    tag: "body weight",
+    title: "Do This Back Workout From Home | No Equipment",
+    channel: "Thenx"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=Sa0sBKUiOvU",
+    muscleTarget: "all_back",
+    tag: "dumbbell",
+    title: "10 MINUTE LIGHTWEIGHT DUMBBELL BACK WORKOUT!",
+    channel: "Midas Movement"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=fX36liNtKzw",
+    muscleTarget: "all_back",
+    tag: "gym",
+    title: "The PERFECT Back Workout (2025 EDITION)",
+    channel: "ATHLEAN-X™"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=bT5YwclMfRo",
+    muscleTarget: "all_back",
+    tag: "gym",
+    title: "HUGE BACK WORKOUT W. BRETT WILKIN",
+    channel: "Chris Bumstead"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=12xHxUnBEiI",
+    muscleTarget: "all_back",
+    tag: "gym",
+    title: "The Most Scientific Way to Train Your BACK | Training Science Explained",
+    channel: "Jeff Nippard"
+  },
+
+  {
+    youtube: "https://www.youtube.com/watch?v=6eBwGki2JuU",
+    muscleTarget: "all_back",
+    tag: "body weight",
+    title: "Exercise Scientist's Top 5 Back Exercises",
+    channel: "Renaissance Periodization"
+  }
+];
+
 
 var hamstring = [
   {
@@ -1842,71 +1908,7 @@ var full_back = [
     tag: "gym",
     title: "Best Back Workout Video Ever (HIT EVERY MUSCLE!!)",
     channel: "ATHLEAN-X™"
-  },
-  //// check
-//   {
-//     youtube: "https://www.youtube.com/watch?v=HHZPRrGHaFw",
-//     muscleTarget: "all_back",
-//     tag: "dumbbell",
-//     title: "Dumbbell Back Workout At Home - (Light Weight = BIG GAINS!!)",
-//     channel: "Ryan Humiston"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=J6de47GLTKQ",
-//     muscleTarget: "all_back",
-//     tag: "body weight",
-//     title: "At Home Back Workout - Bodyweight Exercises - NO EQUIPMENT!",
-//     channel: "Tone and Tighten"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=QqZV3JEoOlc",
-//     muscleTarget: "all_back",
-//     tag: "body weight",
-//     title: "Do This Back Workout From Home | No Equipment",
-//     channel: "Thenx"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=Sa0sBKUiOvU",
-//     muscleTarget: "all_back",
-//     tag: "dumbbell",
-//     title: "10 MINUTE LIGHTWEIGHT DUMBBELL BACK WORKOUT!",
-//     channel: "Midas Movement"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=fX36liNtKzw",
-//     muscleTarget: "all_back",
-//     tag: "gym",
-//     title: "The PERFECT Back Workout (2025 EDITION)",
-//     channel: "ATHLEAN-X™"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=bT5YwclMfRo",
-//     muscleTarget: "all_back",
-//     tag: "gym",
-//     title: "HUGE BACK WORKOUT W. BRETT WILKIN",
-//     channel: "Chris Bumstead"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=12xHxUnBEiI",
-//     muscleTarget: "all_back",
-//     tag: "gym",
-//     title: "The Most Scientific Way to Train Your BACK | Training Science Explained",
-//     channel: "Jeff Nippard"
-//   },
-
-//   {
-//     youtube: "https://www.youtube.com/watch?v=6eBwGki2JuU",
-//     muscleTarget: "all_back",
-//     tag: "body weight",
-//     title: "Exercise Scientist's Top 5 Back Exercises",
-//     channel: "Renaissance Periodization"
-//   }
+  }
 ];
 
 
@@ -2095,6 +2097,24 @@ var triceps = [
     channel: "ATHLEAN-X™"
   }
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,23 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mobile Body Map</title>
-  <link rel="stylesheet" href="index6-clean-v3.css">
+  <link rel="stylesheet" href="index6-clean-v2.css">
 </head>
 <body>
   <div id="all_pages">
     <div id="before_page">
       <div id="bodymap_menu">
         <div id="swap"></div>
-        <button id="favoritesButton" type="button">♥ Favorites</button>
-      </div>
-
-   <div id="mapHeading">
-        <h1>Muscle Map</h1>
-        <p>Tap a muscle to explore videos</p>
       </div>
 
       <div class="wrapper">
-           
         <div id="frontwrapper" class="bodyWrapper">
           <img src="human-body-frontal.png" class="bodyImg" alt="Front view of human body">
 
@@ -71,16 +64,16 @@
     <div id="next_page">
       <div id="exercise_menu">
         <button id="backtodiagram" type="button">Back</button>
-        
+        <button id="favoritesButton" type="button">♥ Favorites</button>
       </div>
 
       <div id="Topic">
         <h2 id="muscleName"></h2>
         <h2 id="excerciseNo"></h2>
       </div>
-      <div id="genre"></div>
+
       <div id="MenuContainer"></div>
-      
+      <div id="genre"></div>
 
       <div id="youtube_video_container">
         <button id="Exityt" type="button">Exit YouTube</button>
@@ -128,14 +121,12 @@
     var temp_genre = [];
     var keymem = "";
     var viewingFavorites = false;
-    
 
     
     var nodeList = document.querySelectorAll("polygon");
 
     for (let i = 0; i < nodeList.length; i++) {
       nodeList[i].onclick = function() {
-        viewingFavorites = false;
         document.getElementById("MenuContainer").innerHTML = "";
         document.getElementById("genre").innerHTML = "";
         temp_genre = ["all"];
@@ -173,7 +164,7 @@
               });
 
               this.classList.add("activeGenre");
-              genre_p_type = this.textContent;
+              genre_p_type = this.innerText;
               document.getElementById("MenuContainer").innerHTML = "";
 
               var filteredCount = 0;
@@ -196,13 +187,6 @@
             document.getElementById("genre").appendChild(genere_p);
           }
         }
-
-        const container = document.getElementById("all_pages");
-
-          container.scrollTo({
-            left: window.innerWidth,
-            behavior: "smooth"
-          });
       };
     }
 
@@ -315,25 +299,17 @@
         });
 
         if (alreadyFavorite) {
+          favorites = favorites.filter(function(item) {
+            return item.youtube != para.youtube;
+          });
 
-              favorites = favorites.filter(function(item) {
-                  return item.youtube != para.youtube;
-              });
+          favorite_button.innerText = "♡";
+        } else {
+          favorites.push(para);
+          favorite_button.innerText = "♥";
+        }
 
-              favorite_button.innerText = "♡";
-
-          } else {
-
-              favorites.push(para);
-
-              favorite_button.innerText = "♥";
-          }
-
-          saveFavorites(favorites);
-
-          if (viewingFavorites) {
-              showFavorites();
-          }
+        saveFavorites(favorites);
       };
 
       youtube_profile.onclick = function() {
@@ -366,52 +342,19 @@
 
     // 3. Show saved favorites
     function showFavorites() {
+      var favorites = getFavorites();
 
-    var favorites = getFavorites();
+      document.getElementById("MenuContainer").innerHTML = "";
+      document.getElementById("genre").innerHTML = "";
+      document.getElementById("muscleName").innerText = "Favorites";
+      document.getElementById("excerciseNo").innerText = favorites.length + " Videos";
 
-    document.getElementById("MenuContainer").innerHTML = "";
-    document.getElementById("genre").innerHTML = "";
-
-    document.getElementById("muscleName").innerText =
-        "Favorites";
-
-    document.getElementById("excerciseNo").innerText =
-        favorites.length + " Videos";
-
-    if (favorites.length == 0) {
-
-        var emptyMessage = document.createElement("p");
-
-        emptyMessage.setAttribute(
-            "class",
-            "favorites_empty"
-        );
-
-        emptyMessage.innerText =
-            "No favorites yet. Save videos you want to watch again.";
-
-        document
-            .getElementById("MenuContainer")
-            .appendChild(emptyMessage);
-
-        return;
-    }
-
-    for (let i = 0; i < favorites.length; i++) {
-
+      for (let i = 0; i < favorites.length; i++) {
         create_section(favorites[i]);
+      }
     }
-}
 
     document.getElementById("favoritesButton").onclick = function() {
-        const container = document.getElementById("all_pages");
-
-          container.scrollTo({
-            left: window.innerWidth,
-            behavior: "smooth"
-          });
-      
-      viewingFavorites = true;
       showFavorites();
     };
 
